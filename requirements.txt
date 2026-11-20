@@ -1,0 +1,5 @@
+# Corpus pipeline (Python >= 3.11; tested on 3.14)
+requests>=2.31
+pydantic>=2.6
+pyyaml>=6.0
+mwparserfromhell>=0.6   # on Python 3.14 install with: set WITHOUT_EXTENSION=1 (pure-Python build)

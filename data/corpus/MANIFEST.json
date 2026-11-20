@@ -1,0 +1,80 @@
+{
+ "schema_version": "1.0.0",
+ "files": {
+  "build_log.json": {
+   "sha256": "b6d106cab05b1507379a47093fd6f570eae90d4b292754e65f1de237bf50fd34",
+   "bytes": 1590,
+   "rows": null
+  },
+  "c1_world/chunks.jsonl": {
+   "sha256": "cbf331067a939f885730bea9d1e6885b3afee30e3226c986c5dd9634528caa47",
+   "bytes": 79252992,
+   "rows": 42904
+  },
+  "c1_world/documents.jsonl": {
+   "sha256": "d6e8ef00f3138d6f4fc9fb62798426ade022b190632690a3bc8fb047cf1bc5f0",
+   "bytes": 76448262,
+   "rows": 14085
+  },
+  "c1_world/entities.jsonl": {
+   "sha256": "d24dd97578480bb70188e7b3aca2da8314054216b23b10ce70ee0f0c92b3c86a",
+   "bytes": 3590464,
+   "rows": 14085
+  },
+  "c1_world/relations.jsonl": {
+   "sha256": "218582936dc9387b53310d4185af1b38efdf3ed9bc5e25202f51c656463be8f1",
+   "bytes": 2029148,
+   "rows": 11370
+  },
+  "c1_world/restriction_report.json": {
+   "sha256": "dcce5b9342dc2fc9de664f144e4739d14e80e21573ea4cf48d169bdba15a1cda",
+   "bytes": 7984,
+   "rows": null
+  },
+  "c2_profiles/npcs.jsonl": {
+   "sha256": "b72a20012c43a289dbbcc3598de64c0a04994205dd9ca879b71ca2f0f8264e61",
+   "bytes": 471979,
+   "rows": 68
+  },
+  "c3_quests/quest_index.json": {
+   "sha256": "28ae6e375a27e632657671206b50bfd1e2f7842d41dc3991ec875b350e36b7cc",
+   "bytes": 27926,
+   "rows": null
+  },
+  "c3_quests/quests.jsonl": {
+   "sha256": "9f7bc61447843bf41e811e373ef53d75c017f637b5b9935d3d734b67ad23c086",
+   "bytes": 1092220,
+   "rows": 557
+  },
+  "c3_quests/world_state_schema.json": {
+   "sha256": "99378974d7899d136018d4575cc969ae941659c28afe27124e6591bfe35dde9c",
+   "bytes": 1288,
+   "rows": null
+  },
+  "c4_dialogue/scenarios.jsonl": {
+   "sha256": "2f1bde5e02052e4fe49874d39b221c18806a0d803dddcf3c7ba740b18e601b2a",
+   "bytes": 20206761,
+   "rows": 3916
+  },
+  "c4_dialogue/seed_uesp_dialogue.jsonl": {
+   "sha256": "731f497de7fb55dbb699b87752efe4b024a40a0da449de53d1224fab53d4b441",
+   "bytes": 1639167,
+   "rows": 421
+  },
+  "eval/eval_cases.jsonl": {
+   "sha256": "0c573399f3622c6991878cf62c14059b5bccda58046e0e1e4b3601d1c9517d02",
+   "bytes": 3339809,
+   "rows": 685
+  },
+  "sft/train.jsonl": {
+   "sha256": "9eb41fe25302c09246e45f25aec709c2e9f5a37e9e9467a30dad9aaf4dcac843",
+   "bytes": 1195429,
+   "rows": 354
+  },
+  "sft/val.jsonl": {
+   "sha256": "f056061c30e27059751a9d71ec348fbd7ee27422d12d4b549615a9c0066ecc35",
+   "bytes": 63528,
+   "rows": 15
+  }
+ }
+}

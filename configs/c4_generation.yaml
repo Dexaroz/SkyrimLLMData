@@ -1,0 +1,76 @@
+# Corpus 4 scenario & generation settings
+seed: 13
+# scenarios per NPC per behaviour (multiplied by `scale`)
+scale: 1.0
+per_behavior:
+  smalltalk: 3
+  self_identity: 3
+  occupation_service: 2
+  local_knowledge: 6
+  world_lore: 8
+  opinion: 4
+  unknown_info: 6
+  restricted_info: 6      # only NPCs with secrets / restricted topics
+  quest_aware: 3          # only NPCs involved in in-scope quests
+  world_state_reaction: 4
+  memory_recall: 4
+  multi_turn: 4
+  out_of_world: 3
+  hostile_player: 2
+  player_race_reaction: 2
+  rumor: 3
+retrieval_k: 4
+distractor_prob: 0.5      # add one unrelated-but-visible chunk (RAFT-style robustness)
+style_examples: 2
+
+# NPCs entirely held out of train/val (generalisation test in eval)
+eval_holdout_npcs: [ysolda, arcadia, idolaf_battle_born, ahlam, athis, elrindir]
+val_fraction: 0.05
+eval_fraction_seen: 0.05
+
+player_races: [Nord, Imperial, Breton, Redguard, Dark Elf, High Elf, Wood Elf, Orc, Khajiit, Argonian]
+player_genders: [Male, Female]
+player_names: [null, null, null, Ragnar, Lyra, Marcus, Sigrid, Hadrun, Selene]
+
+# Game-progress presets (quests = UESP titles; stage or "done")
+world_presets:
+  arrival:
+    weight: 3
+    time: "4E 201, Middas, late morning"
+    quests: {"Skyrim:Before the Storm": 100}
+  dragonborn:
+    weight: 3
+    time: "4E 201, Fredas, evening"
+    quests: {"Skyrim:Before the Storm": done, "Skyrim:Bleak Falls Barrow (quest)": done, "Skyrim:Dragon Rising": done}
+  companion:
+    weight: 2
+    time: "4E 201, Turdas, afternoon"
+    quests: {"Skyrim:Before the Storm": done, "Skyrim:Take Up Arms": done, "Skyrim:Proving Honor": done}
+  stormcloak_whiterun:
+    weight: 1
+    time: "4E 201, Loredas, night"
+    quests: {"Skyrim:Before the Storm": done, "Skyrim:Dragon Rising": done, "Skyrim:Battle for Whiterun (Stormcloaks)": done}
+  imperial_whiterun:
+    weight: 1
+    time: "4E 201, Sundas, morning"
+    quests: {"Skyrim:Before the Storm": done, "Skyrim:Dragon Rising": done, "Skyrim:Battle for Whiterun (Imperial)": done}
+  late_game:
+    weight: 1
+    time: "4E 202, Morndas, midday"
+    quests: {"Skyrim:Before the Storm": done, "Skyrim:Dragon Rising": done, "Skyrim:Glory of the Dead": done,
+             "Skyrim:The Blessings of Nature": done, "Skyrim:Missing In Action": done, "Skyrim:In My Time Of Need": done}
+
+whiterun_places: [Dragonsreach, Jorrvaskr, The Bannered Mare, Warmaiden's, Belethor's General Goods,
+                  Arcadia's Cauldron, Temple of Kynareth, The Drunken Huntsman, Skyforge, Breezehome,
+                  Gildergreen, Hall of the Dead, Plains District, Wind District, Cloud District,
+                  Whiterun Stables, Chillfurrow Farm, Western Watchtower, Riverwood, Bleak Falls Barrow]
+
+# Teacher (OpenAI-compatible endpoint; Ollama default)
+teacher:
+  base_url: http://localhost:11434/v1
+  model: qwen2.5:7b-instruct
+  temperature: 0.8
+  max_tokens: 400
+  timeout: 180
+  judge: true             # second pass scoring 1-5 (same endpoint)
+  min_judge_score: 4

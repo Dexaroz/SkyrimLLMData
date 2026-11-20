@@ -1,0 +1,89 @@
+# Source registry (Phase 1). Every record in data/corpus references one of these ids
+# in provenance.source. `decision` documents why a source is used or excluded.
+uesp:
+  name: Unofficial Elder Scrolls Pages (live MediaWiki API)
+  url: https://en.uesp.net/
+  license: CC BY-SA 2.5
+  redistributable: true
+  attribution: "Content from UESP (https://en.uesp.net), CC BY-SA 2.5. Modified: wikitext cleaned, split and annotated."
+  used_for: [c1_world, c2_profiles, c3_quests, c4_dialogue_seed, eval]
+  decision: >
+    Primary source. Fetched live (revision ids stored) instead of using third-party
+    dumps: fresher, keeps raw wikitext so infoboxes (NPC Summary, Quest Header,
+    Journal Entries) can be parsed into structured data. Quoted in-game dialogue on
+    UESP pages remains Bethesda's text; we tag it as such (see game_dialogue_quotes).
+  notes: "ShareAlike: derived corpora built from UESP must be released under CC BY-SA."
+
+game_dialogue_quotes:
+  name: In-game dialogue quoted on UESP NPC pages
+  license: "© Bethesda Softworks (quoted on UESP); research use"
+  redistributable: false
+  used_for: [c2_profiles.dialogue_samples, c4_dialogue_seed, eval_references]
+  decision: Short, high-quality style anchors and condition-dependent lines. Kept, flagged non-redistributable.
+
+game_dialogue_export:
+  name: Dialogue exported by the user from their own Skyrim copy (xEdit / Lazy Voice Finder CSV)
+  license: "© Bethesda Softworks; research use only"
+  redistributable: false
+  used_for: [c4_dialogue_style]
+  decision: Optional, imported with skyrimllm_data.import_external. Never published.
+
+mantella_characters:
+  name: Mantella skyrim_characters.csv (NPC bios, voice, tags)
+  url: https://github.com/art-from-the-machine/Mantella/blob/main/data/Skyrim/skyrim_characters.csv
+  license: AGPL-3.0
+  redistributable: true   # copyleft: derived data must keep AGPL-3.0 terms
+  used_for: [c2_profiles.bio_secondary]
+  decision: >
+    Complementary human-written bios (appearance, home, relationships) for ~3.2k NPCs.
+    Used only as secondary evidence for profile enrichment, kept in a separate field
+    with its own licence tag.
+
+mantella_finetuning_notebook:
+  name: Mantella-LLM-Fine-Tuning (skyrim_dataset.ipynb)
+  url: https://github.com/art-from-the-machine/Mantella-LLM-Fine-Tuning
+  license: MIT (code); resulting dataset contains Bethesda dialogue
+  redistributable: false
+  used_for: [c4_dialogue_style]
+  decision: >
+    The 8.8k Alpaca pairs are not published; they must be regenerated from an owned
+    copy. Our importer accepts its skyrim_alpaca_style_dataset.json. Lesson taken:
+    single fixed instruction and no NPC/context -> we condition every example on
+    profile + world state + retrieved knowledge instead.
+
+synthetic_teacher:
+  name: Synthetic conversations from a local teacher LLM (Ollama, OpenAI-compatible API)
+  license: "Derived from UESP (CC BY-SA 2.5) contexts; generated text"
+  redistributable: true
+  used_for: [c4_dialogue]
+  decision: Main volume of SFT data; every example validated automatically, a sample reviewed by hand.
+
+curated:
+  name: Project-authored curation (NPC overlays, secrets, world effects)
+  license: CC BY-SA 4.0 (project) — facts cite UESP pages
+  redistributable: true
+  used_for: [c2_profiles, c3_quests, eval]
+
+# ---------------------------------------------------------------- excluded
+excluded:
+  RoyalCities/Elder_Scrolls_Wiki_Dataset:
+    license: CC BY-SA 2.5 (UESP snapshot, Apr 2025)
+    reason: Redundant with live API; markdown export drops infobox templates we need. Usable as offline fallback.
+  Netruk44/uesp-wiki-content:
+    license: CC BY-SA 2.5 (UESP dump 2022-02)
+    reason: Stale (2022) and cleaned text has known missing words. Fallback only.
+  Delta-Vector/Hydrus-The-Elder-Scrolls-Instruct:
+    license: unspecified
+    reason: Unknown licence and provenance.
+  HarryDn/Skyrim-ShareGPT:
+    license: unknown
+    reason: Unknown licence; generic QA, not NPC-conditioned.
+  VadorMazer/skyrimdialogstest:
+    license: unspecified
+    reason: Raw game dialogue redistributed without licence; use the user's own export instead.
+  potoftea/serana_skyrim_elderscrolls:
+    license: unspecified
+    reason: Single companion character (Dawnguard), unknown licence.
+  elder_scrolls_fandom_wiki:
+    license: CC BY-SA 3.0
+    reason: Largely overlaps UESP with lower editorial standards; would create conflicting duplicates.

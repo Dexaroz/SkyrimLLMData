@@ -1,0 +1,175 @@
+{
+ "c1": {
+  "result": {
+   "documents": 14085,
+   "chunks": 42904,
+   "entities": 14085,
+   "relations": 11370,
+   "type:book": 4526,
+   "type:quest": 492,
+   "chunks_noise_skipped": 966,
+   "excluded_cc": 856,
+   "type:other": 723,
+   "chunks_meta_skipped": 3262,
+   "type:place": 2101,
+   "type:mechanic": 384,
+   "type:npc": 2579,
+   "excluded_title": 97,
+   "type:creature": 564,
+   "type:item": 865,
+   "type:race": 122,
+   "type:event": 104,
+   "type:lore": 772,
+   "type:faction": 618,
+   "type:deity": 235,
+   "chunks_quest_section_gated": 45,
+   "scopes": {
+    "scholarly": 33818,
+    "common": 3377,
+    "quest_participants": 1913,
+    "regional": 2899,
+    "local": 614,
+    "personal": 283
+   },
+   "chunk_tokens": 11188227
+  },
+  "seconds": 232.7
+ },
+ "c3": {
+  "result": {
+   "quests": 557,
+   "with_stages": 537,
+   "in_scope": 55,
+   "effects": 11,
+   "unresolved_effect_quests": []
+  },
+  "seconds": 13.5
+ },
+ "c2": {
+  "result": {
+   "npcs": 68,
+   "curated": 27,
+   "with_dialogue": 62,
+   "dialogue_lines": 593,
+   "with_mantella_bio": 67,
+   "missing_pages": [],
+   "overlays_unmatched": []
+  },
+  "seconds": 1.2
+ },
+ "restrict": {
+  "result": {
+   "saadia_identity": 4,
+   "companions_werewolves": 85,
+   "thorald_prisoner": 5,
+   "jon_olfina_romance": 1,
+   "delphine_blades": 55,
+   "nelkir_whispering_door": 9
+  },
+  "seconds": 7.7
+ },
+ "index": {
+  "result": {
+   "indexed": 42904
+  },
+  "seconds": 4.0
+ },
+ "c4": {
+  "result": {
+   "scenarios": 3916
+  },
+  "seconds": 73.2
+ },
+ "seed": {
+  "result": {
+   "seed_examples": 421,
+   "skipped_lines": 172,
+   "split": {
+    "train": 354,
+    "val": 15,
+    "eval": 52
+   },
+   "behaviors": {
+    "smalltalk": 283,
+    "game_topic": 130,
+    "rumor": 8
+   }
+  },
+  "seconds": 2.2
+ },
+ "eval": {
+  "result": {
+   "eval_cases": 685,
+   "by_dimension": {
+    "factual": 189,
+    "context_state": 72,
+    "character": 85,
+    "robustness": 53,
+    "memory": 86,
+    "naturalness": 111,
+    "knowledge_restriction": 89
+   }
+  },
+  "seconds": 1.5
+ },
+ "assemble": {
+  "result": {
+   "train": {
+    "n": 354,
+    "origin": {
+     "uesp_dialogue": 354
+    },
+    "behavior": {
+     "smalltalk": 244,
+     "rumor": 8,
+     "game_topic": 102
+    }
+   },
+   "val": {
+    "n": 15,
+    "origin": {
+     "uesp_dialogue": 15
+    },
+    "behavior": {
+     "smalltalk": 6,
+     "game_topic": 9
+    }
+   }
+  },
+  "seconds": 0.1
+ },
+ "report": {
+  "result": {
+   "c1": {
+    "documents": 14085,
+    "chunks": 42904,
+    "tokens": 11188227,
+    "spoiler_chunks": 2338,
+    "restricted_chunks": 157,
+    "relations": 11370
+   },
+   "c2": {
+    "npcs": 68,
+    "dialogue_lines": 593
+   },
+   "c3": {
+    "quests": 557,
+    "stages": 2946,
+    "in_scope": 55,
+    "world_effects": 11
+   },
+   "c4_scenarios": {
+    "n": 3916,
+    "avg_prompt_tokens": 1015
+   },
+   "c4_seed": {
+    "n": 421,
+    "flagged": 33
+   },
+   "eval": {
+    "n": 685
+   }
+  },
+  "seconds": 2.1
+ }
+}

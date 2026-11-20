@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+data/raw/
+data/index/
+data/_tmp/
+logs/
+.env
+# Not redistributable (Bethesda dialogue): never commit
+data/corpus/c4_dialogue/external/
+data/corpus/c4_dialogue/seed_uesp_dialogue.jsonl
+data/corpus/sft/train.jsonl
+data/corpus/sft/val.jsonl

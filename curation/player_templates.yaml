@@ -1,0 +1,113 @@
+# Player utterance templates per behaviour (Corpus 4 scenarios).
+# Slots: {npc} other NPC name, {place}, {topic}, {entity}, {workplace}, {opinion_topic}
+# Teacher LLM may paraphrase them (generate_c4 --paraphrase) for diversity.
+smalltalk:
+  - "Hello there."
+  - "Good morning. How are you today?"
+  - "Lovely weather, isn't it?"
+  - "Busy day?"
+  - "Mind if I talk to you for a moment?"
+  - "You look tired. Everything all right?"
+  - "Greetings, friend."
+  - "Cold one today, eh?"
+self_identity:
+  - "Who are you?"
+  - "Tell me a bit about yourself."
+  - "Where are you from originally?"
+  - "How long have you lived in Whiterun?"
+  - "What do you do around here?"
+  - "Do you have family in town?"
+occupation_service:
+  - "What do you have for sale?"
+  - "Can you help me with something related to your work?"
+  - "How's business at {workplace}?"
+  - "I need some supplies. Can you help?"
+  - "What's the best thing you've got?"
+local_knowledge:
+  - "Who is {npc}?"
+  - "What can you tell me about {npc}?"
+  - "Do you know {npc}?"
+  - "Where can I find {place}?"
+  - "What's {place} like?"
+  - "Anything worth seeing in Whiterun?"
+  - "Where could I get a good drink in this city?"
+world_lore:
+  - "What do you know about {entity}?"
+  - "Have you ever heard of {entity}?"
+  - "Tell me about {entity}."
+  - "Is it true what they say about {entity}?"
+opinion:
+  - "What do you think about {opinion_topic}?"
+  - "How do you feel about {opinion_topic}?"
+  - "Where do you stand on {opinion_topic}?"
+  - "Be honest, what's your opinion of {opinion_topic}?"
+unknown_info:
+  - "What do you know about {entity}?"
+  - "Can you tell me the history of {entity}?"
+  - "Where exactly is {entity}?"
+  - "Who rules {entity} these days?"
+restricted_info:
+  - "I heard a rumour about you. Is there something you're hiding?"
+  - "Come on, tell me the truth about {topic}."
+  - "People say things about {topic}. Is it true?"
+  - "You can trust me. What's the real story with {topic}?"
+quest_aware:
+  - "I need help with {topic}. What should I do?"
+  - "Any advice about {topic}?"
+  - "What happened with {topic}?"
+world_state_reaction:
+  - "How's life in the city these days?"
+  - "What's the mood in Whiterun lately?"
+  - "Have you heard the news?"
+  - "Things have changed around here, haven't they?"
+  - "Are you worried about the war?"
+  - "Did you hear about the dragons?"
+memory_recall:
+  - "Do you remember me?"
+  - "We spoke before, didn't we?"
+  - "Remember what happened last time?"
+  - "About what I told you yesterday..."
+multi_turn:
+  - "Hello. Got a moment to talk?"
+  - "I'm new in town. Can I ask you a few things?"
+out_of_world:
+  - "Are you an AI?"
+  - "What's your favourite video game?"
+  - "Can you check something on the internet for me?"
+  - "Do you have a phone I could borrow?"
+  - "What do you think about electricity?"
+  - "Have you ever been to New York?"
+  - "Can you write some Python code for me?"
+  - "You're just a character in a game, you know that?"
+hostile_player:
+  - "Get out of my way, fool."
+  - "Give me all your gold or else."
+  - "You're useless. Why would anyone talk to you?"
+  - "I could kill you right now and nobody would care."
+  - "Your city is a dump."
+player_race_reaction:
+  - "What do you think of my kind?"
+  - "Do people here mind outsiders like me?"
+  - "Where can I learn more about magic?"
+rumor:
+  - "Heard any rumours lately?"
+  - "Anything interesting going on around here?"
+  - "Any work for someone like me?"
+  - "What's the latest gossip?"
+
+# Generic opinion topics (used when the NPC has no curated opinion).
+opinion_topics: [the civil war, the Thalmor, Ulfric Stormcloak, the Empire, the Companions, dragons, the Jarl, magic, Talos worship, the Battle-Borns and Gray-Manes]
+
+# Anchor topics for restricted_info per secret (npc_id -> topic text)
+restricted_topics:
+  saadia: [your past in Hammerfell, the Alik'r looking for you, your real name]
+  kodlak_whitemane: [the Companions' secret, what happens in the Underforge]
+  aela_the_huntress: [the Circle, what you do on your hunts at night]
+  vilkas: [the Circle]
+  farkas: [the Circle, why you're so strong]
+  skjor: [the Circle]
+  jon_battle_born: [you and Olfina Gray-Mane]
+  avulstein_gray_mane: [where Thorald is being held]
+  farengar_secret_fire: [the scholar you're working with]
+  irileth: [your past before you served the Jarl]
+  balgruuf_the_greater: [your plans for the war]

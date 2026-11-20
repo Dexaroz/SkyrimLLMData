@@ -1,0 +1,90 @@
+# Static world effects (Corpus 3): quest progress -> world-state variables.
+# quest = UESP page title (resolved to editor id at build time).
+# knowledge_scope = who in the world learns about the change.
+variables:
+  whiterun.control:          {type: enum, values: [Imperial-neutral, Imperial, Stormcloak], default: Imperial-neutral}
+  whiterun.jarl:             {type: str, default: Balgruuf the Greater}
+  player.known_as_dragonborn: {type: bool, default: false}
+  player.thane_of_whiterun:  {type: bool, default: false}
+  player.companion:          {type: enum, values: [none, member, circle, harbinger], default: none}
+  dragons.returned_public:   {type: bool, default: false}
+  whiterun.gildergreen:      {type: enum, values: [dying, restored, sapling], default: dying}
+  thorald.status:            {type: enum, values: [missing, rescued, dead], default: missing}
+  saadia.outcome:            {type: enum, values: [unresolved, protected, handed_over], default: unresolved}
+  kodlak.alive:              {type: bool, default: true}
+
+effects:
+  - quest: Skyrim:Before the Storm
+    completed: true
+    variable: dragons.returned_public
+    value: true
+    description: News of the dragon that destroyed Helgen has reached Whiterun.
+    knowledge_scope: regional:whiterun_hold
+  - quest: Skyrim:Dragon Rising
+    completed: true
+    variable: player.known_as_dragonborn
+    value: true
+    description: The player killed the dragon at the Western Watchtower, absorbed its soul and the Greybeards called them Dragonborn.
+    affected_npcs: [balgruuf_the_greater, irileth, lydia]
+    knowledge_scope: local:whiterun
+  - quest: Skyrim:Dragon Rising
+    completed: true
+    variable: player.thane_of_whiterun
+    value: true
+    description: Jarl Balgruuf named the player Thane of Whiterun and assigned Lydia as housecarl.
+    affected_npcs: [balgruuf_the_greater, lydia, proventus_avenicci]
+    knowledge_scope: local:whiterun
+  - quest: Skyrim:Battle for Whiterun (Stormcloaks)
+    completed: true
+    variable: whiterun.control
+    value: Stormcloak
+    description: The Stormcloaks took Whiterun; Balgruuf was exiled and Vignar Gray-Mane became Jarl.
+    affected_npcs: [balgruuf_the_greater, irileth, proventus_avenicci, vignar_gray_mane, olfrid_battle_born, hulda]
+    knowledge_scope: common
+  - quest: Skyrim:Battle for Whiterun (Stormcloaks)
+    completed: true
+    variable: whiterun.jarl
+    value: Vignar Gray-Mane
+    description: Vignar Gray-Mane rules Whiterun from Dragonsreach.
+    knowledge_scope: common
+  - quest: Skyrim:Battle for Whiterun (Imperial)
+    completed: true
+    variable: whiterun.control
+    value: Imperial
+    description: Whiterun joined the Empire and repelled the Stormcloak assault.
+    knowledge_scope: common
+  - quest: Skyrim:Take Up Arms
+    completed: true
+    variable: player.companion
+    value: member
+    description: The player was accepted into the Companions.
+    affected_npcs: [kodlak_whitemane, aela_the_huntress, vilkas, farkas]
+    knowledge_scope: faction:companions
+  - quest: Skyrim:Glory of the Dead
+    completed: true
+    variable: kodlak.alive
+    value: false
+    description: Kodlak Whitemane was killed by the Silver Hand and his spirit freed from the beast blood; the player became Harbinger.
+    affected_npcs: [aela_the_huntress, vilkas, farkas, eorlund_gray_mane]
+    knowledge_scope: local:whiterun
+  - quest: Skyrim:The Blessings of Nature
+    completed: true
+    variable: whiterun.gildergreen
+    value: restored
+    description: The Gildergreen was healed with sap from the Eldergleam.
+    affected_npcs: [danica_pure_spring]
+    knowledge_scope: local:whiterun
+  - quest: Skyrim:Missing In Action
+    completed: true
+    variable: thorald.status
+    value: rescued
+    description: Thorald Gray-Mane was freed from the Thalmor at Northwatch Keep.
+    affected_npcs: [fralia_gray_mane, avulstein_gray_mane, olfina_gray_mane, eorlund_gray_mane]
+    knowledge_scope: local:whiterun
+  - quest: Skyrim:In My Time Of Need
+    completed: true
+    variable: saadia.outcome
+    value: protected
+    description: The Alik'r who hunted Saadia were dealt with (outcome depends on the player's choice).
+    affected_npcs: [saadia, hulda]
+    knowledge_scope: local:whiterun

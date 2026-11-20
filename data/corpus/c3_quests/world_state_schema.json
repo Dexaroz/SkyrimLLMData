@@ -1,0 +1,71 @@
+{
+ "variables": {
+  "whiterun.control": {
+   "type": "enum",
+   "values": [
+    "Imperial-neutral",
+    "Imperial",
+    "Stormcloak"
+   ],
+   "default": "Imperial-neutral"
+  },
+  "whiterun.jarl": {
+   "type": "str",
+   "default": "Balgruuf the Greater"
+  },
+  "player.known_as_dragonborn": {
+   "type": "bool",
+   "default": false
+  },
+  "player.thane_of_whiterun": {
+   "type": "bool",
+   "default": false
+  },
+  "player.companion": {
+   "type": "enum",
+   "values": [
+    "none",
+    "member",
+    "circle",
+    "harbinger"
+   ],
+   "default": "none"
+  },
+  "dragons.returned_public": {
+   "type": "bool",
+   "default": false
+  },
+  "whiterun.gildergreen": {
+   "type": "enum",
+   "values": [
+    "dying",
+    "restored",
+    "sapling"
+   ],
+   "default": "dying"
+  },
+  "thorald.status": {
+   "type": "enum",
+   "values": [
+    "missing",
+    "rescued",
+    "dead"
+   ],
+   "default": "missing"
+  },
+  "saadia.outcome": {
+   "type": "enum",
+   "values": [
+    "unresolved",
+    "protected",
+    "handed_over"
+   ],
+   "default": "unresolved"
+  },
+  "kodlak.alive": {
+   "type": "bool",
+   "default": true
+  }
+ },
+ "doc": "Dynamic state = schemas.WorldState. quests: {quest_id: stage}; variables keys listed here."
+}

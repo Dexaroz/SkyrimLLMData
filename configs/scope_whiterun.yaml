@@ -1,0 +1,40 @@
+# Initial prototype scope: Whiterun (Carrera Blanca).
+scope_id: whiterun
+settlement: Whiterun
+hold: Whiterun Hold
+
+# NPC pages = members of these UESP categories (+ extra), minus excluded.
+npc_categories:
+  - Skyrim-Factions-TownWhiterunFaction
+npc_extra:
+  - Skyrim:Lydia
+  - Skyrim:Heimskr
+  - Skyrim:Vignar Gray-Mane
+  - Skyrim:Brill
+npc_exclude:
+  - Skyrim:Sickly Farmer
+  - Skyrim:Wounded Soldier
+  - Skyrim:Commander Caius
+
+# World knowledge (Corpus 1) is built from the full namespaces; chunks are
+# scoped so NPCs only see what they could know.
+namespaces: [Skyrim, Lore]
+
+# Pages never indexed (game-technical / out-of-universe / non-vanilla).
+exclude_title_patterns:
+  - "^Skyrim:(Mod|Mods|Console|Patch|Version|Achievements|Bugs|Glitches|Controls|Hotkeys|Save|Settings|Official Add-ons|Creation Club|Special Edition|Anniversary|VR|Nintendo|Prima|Developers)"
+  - "Leveled (Lists|Items)"
+  - "^Skyrim:.*\\b(ID|IDs|Form IDs|Editor IDs)\\b"
+  - "^Lore:(Appendices|Main Page|Lore)$"
+  - "/(Sandbox|Archive|Draft)"
+exclude_categories_prefix:
+  - Skyrim-Creation Club
+  - Skyrim-Bugs
+  - Skyrim-Concept Art
+
+# Settlements of the hold (for local:/regional: scopes)
+hold_settlements: [Whiterun, Riverwood, Rorikstead]
+
+# Chunking
+chunk_max_tokens: 350
+chunk_overlap_tokens: 40
